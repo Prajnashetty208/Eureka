@@ -1,0 +1,31 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    username: sa
+    password: pass
+    url: jdbc:h2:mem:orderTable
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    wait-time-in-ms-when-sync-empty: 5
+
+
+
+
